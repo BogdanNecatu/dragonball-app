@@ -1,13 +1,13 @@
 .wrapper {
   width: 100%;
-  padding: 1.5rem;
+  padding: 48px 48px 36px 48px;
   background-color: white;
 }
 
 .inputGroup {
   display: flex;
   align-items: center;
-  border-bottom: 2px solid #9ca3af;
+  border-bottom: 1px solid #000000;
   padding-bottom: 0.5rem;
 }
 
