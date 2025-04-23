@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
 import CharacterGrid from "../components/CharacterGrid";
 import { useCharactersStore } from "../store/useCharactersStore";
-import { Character } from "@types";
+import { Character } from "../types";
 
 const Home = () => {
   const { characters, fetchCharacters } = useCharactersStore();

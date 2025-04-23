@@ -9,6 +9,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.borderBottom {
+  border-bottom: 2px solid #333333;
+}
+
 .logo {
   width: 122px;
   height: 52px;

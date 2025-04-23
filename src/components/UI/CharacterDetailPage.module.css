@@ -1,0 +1,28 @@
+.animatedBar {
+  height: 6px;
+  background-color: #ec1d24;
+  width: 0;
+  animation: barGrow 0.6s ease-out forwards;
+}
+
+@keyframes barGrow {
+  to {
+    width: 100%;
+  }
+}
+
+.slideIn {
+  animation: slideDown 0.4s ease-out;
+  transform-origin: top;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

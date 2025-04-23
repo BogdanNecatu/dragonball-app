@@ -19,7 +19,7 @@
     "noEmit": true,
     "baseUrl": "src",
     "paths": {
-      "@types": ["types.ts"]
+      "@types/*": ["types/*"]
     }
   },
   "include": ["src", "vite.config.ts"],

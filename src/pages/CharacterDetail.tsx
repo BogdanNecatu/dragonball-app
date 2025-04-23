@@ -8,13 +8,15 @@ export default function CharacterDetail() {
   const { id } = useParams();
   const scrollRef = useHorizontalScroll<HTMLDivElement>();
 
+  if (!id) return null;
+
+  const fav = isFavorite(Number(id));
+
   const character = useCharactersStore((state) =>
     state.characters.find((c) => Number(c.id) === Number(id))
   );
 
   if (!character) return <p className="p-4">Personaje no encontrado.</p>;
-
-  const fav = id ? isFavorite(id) : false;
 
   const parseKi = (kiString: string): number => {
     const units: Record<string, number> = {
@@ -51,8 +53,6 @@ export default function CharacterDetail() {
           <img
             src={character.image}
             alt={character.name}
-            width={300}
-            height={400}
             className={styles.characterImage}
           />
           <div className={styles.characterInfo}>
@@ -115,9 +115,8 @@ export default function CharacterDetail() {
                     <img
                       src={t.image}
                       alt={t.name}
-                      width={180}
-                      height={250}
                       draggable={false}
+                      className={styles.transformationImage}
                     />
                     <div className={styles.cardInfo}>
                       <p className={styles.cardTitle}>{t.name}</p>

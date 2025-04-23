@@ -40,23 +40,24 @@
 @media (min-width: 768px) {
   .heroInner {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center; /* centrado vertical del bloque texto */
     justify-content: center;
   }
 }
 
 .characterImage {
-  width: 100%;
-  max-width: 300px;
+  max-width: 150px;
   height: auto;
   border-radius: 8px;
   align-self: center;
+  object-fit: cover;
 }
 
 .characterInfo {
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .characterName {
@@ -130,9 +131,27 @@
 }
 
 .card {
-  min-width: 180px;
   flex-shrink: 0;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 180px;
+}
+
+.transformationImage {
+  width: 180px;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+@media (max-width: 768px) {
+  .transformationImage {
+    width: 140px;
+    aspect-ratio: 3 / 4;
+  }
 }
 
 .cardTitle {
@@ -146,15 +165,15 @@
 }
 
 .scrollContainer::-webkit-scrollbar {
-  height: 6px;
+  height: 4px;
 }
 
 .scrollContainer::-webkit-scrollbar-track {
   background: #f0f0f0;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 .scrollContainer::-webkit-scrollbar-thumb {
   background-color: #ec1d24;
-  border-radius: 6px;
+  border-radius: 4px;
 }

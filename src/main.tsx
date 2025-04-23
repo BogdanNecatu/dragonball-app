@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import Home from "./pages/Home";
-import CharacterDetail from "./pages/CharacterDetail";
 import Favorites from "./pages/Favorites";
+import CharacterDetailPage from "./components/UI/CharacterDetailPage";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
-          <Route path="character/:id" element={<CharacterDetail />} />
+          <Route path="character/:id" element={<CharacterDetailPage />} />
           <Route path="favorites" element={<Favorites />} />
         </Route>
       </Routes>

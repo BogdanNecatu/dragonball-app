@@ -66,7 +66,7 @@ ESLint + Prettier
 
 # Clona el repositorio
 
-https://github.com/NecatuBogdan/dragonball-app.git
+https://github.com/BogdanNecatu/dragonball-app.git
 cd dragonball-app
 
 # Instala dependencias

@@ -19,7 +19,7 @@ export interface StoreState {
   favorites: Character[];
   setCharacters: (characters: Character[]) => void;
   toggleFavorite: (character: Character) => void;
-  isFavorite: (id: string) => boolean;
+  isFavorite: (id: number) => boolean;
   fetchCharacters: () => void;
 }
 
