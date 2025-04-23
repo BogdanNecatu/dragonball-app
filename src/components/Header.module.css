@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  background-color: black;
+  color: white;
+  height: 84px;
+  padding: 28px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 122px;
+  height: 52px;
+  top: 5px;
+  left: 4px;
+}
+
+.fav {
+  font-size: 15px;
+  margin-left: 8px;
+  color: white;
+}
+
+.logo {
+  height: 60px;
+  object-fit: contain;
+}
+
+a {
+  text-decoration: none; /* esto afecta a todos los NavLink */
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a svg {
+  vertical-align: middle;
+}
