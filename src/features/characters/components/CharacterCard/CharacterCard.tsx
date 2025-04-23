@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useCharactersStore } from "../store/useCharactersStore";
+import { useCharactersStore } from "../../store/useCharactersStore";
 import styles from "./CharacterCard.module.css";
 
 type Props = {

@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { useCharactersStore } from "../store/useCharactersStore";
+import { useCharactersStore } from "../../../features/characters/store/useCharactersStore";
 import styles from "./Header.module.css";
-import dragonballLogo from "../images/logo-dragon-ball-api.png";
+import dragonballLogo from "../../../assets/images/logo-dragon-ball-api.png";
 
 const Header = () => {
   const location = useLocation();

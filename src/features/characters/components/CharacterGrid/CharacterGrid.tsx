@@ -1,6 +1,6 @@
-import CharacterCard from "./CharacterCard";
+import CharacterCard from "../CharacterCard/CharacterCard";
 import styles from "./CharacterGrid.module.css";
-import { Character } from "../types";
+import { Character } from "../../types";
 
 interface Props {
   characters: Character[];

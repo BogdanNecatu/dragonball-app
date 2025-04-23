@@ -1,7 +1,7 @@
 import styles from "./CharacterDetail.module.css";
 import { useParams } from "react-router-dom";
-import { useCharactersStore } from "../store/useCharactersStore";
-import { useHorizontalScroll } from "../hooks/useHorizontalScroll";
+import { useCharactersStore } from "../../store/useCharactersStore";
+import { useHorizontalScroll } from "../../../../shared/common/hooks/useHorizontalScroll";
 
 export default function CharacterDetail() {
   const { toggleFavorite, isFavorite } = useCharactersStore();

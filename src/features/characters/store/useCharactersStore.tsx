@@ -39,6 +39,7 @@ export const useCharactersStore = create<StoreState>()(
           localStorage.setItem("lastFetch", now.toString());
         } catch (e) {
           console.error("Error fetching Dragon Ball characters:", e);
+          throw e;
         }
       },
     }),

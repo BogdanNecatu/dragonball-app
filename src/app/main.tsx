@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
-import Home from "./pages/Home";
-import Favorites from "./pages/Favorites";
-import CharacterDetailPage from "./components/UI/CharacterDetailPage";
+import Home from "../pages/Home/Home";
+import Favorites from "../pages/Favorites/Favorites";
+import CharacterDetailPage from "../shared/ui//CharacterDetailPage/CharacterDetailPage";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

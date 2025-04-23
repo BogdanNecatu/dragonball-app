@@ -1,9 +1,9 @@
 import { useState } from "react";
-import SearchBar from "../components/SearchBar";
-import CharacterGrid from "../components/CharacterGrid";
-import { useCharactersStore } from "../store/useCharactersStore";
-import useImagesLoaded from "../hooks/useImagesLoaded";
-import { Character } from "../types";
+import SearchBar from "../../shared/ui/SearchBar/SearchBar";
+import CharacterGrid from "../../features/characters/components/CharacterGrid/CharacterGrid";
+import { useCharactersStore } from "../../features/characters/store/useCharactersStore";
+import useImagesLoaded from "../../shared/common/hooks/useImagesLoaded";
+import { Character } from "../../features/characters/types";
 import styles from "./Favorites.module.css";
 
 const Favorites = () => {

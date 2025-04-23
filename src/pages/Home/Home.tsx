@@ -1,0 +1,61 @@
+import { useState, useEffect } from "react";
+import SearchBar from "../../shared/ui/SearchBar/SearchBar";
+import CharacterGrid from "../../features/characters/components/CharacterGrid/CharacterGrid";
+import { useCharactersStore } from "../../features/characters/store/useCharactersStore";
+import useImagesLoaded from "../../shared/common/hooks/useImagesLoaded";
+import { Character } from "../../features/characters/types";
+import styles from "./Home.module.css";
+
+const Home = () => {
+  const { characters, fetchCharacters } = useCharactersStore();
+  const [search, setSearch] = useState("");
+
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await fetchCharacters();
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError("An unexpected error occurred.");
+        }
+      }
+    };
+
+    fetchData();
+  }, [fetchCharacters]);
+
+  const filtered = characters.filter((char: Character) =>
+    char.name.toLowerCase().split(" ")[0].startsWith(search.toLowerCase())
+  );
+
+  const imageUrls = filtered.map((char) => char.image);
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
+  return (
+    <main className={`${styles.main} ${allImagesLoaded ? styles.loaded : ""}`}>
+      {error ? (
+        <div className={styles.errorMessage}>
+          <p>{error}</p>
+          <button onClick={() => window.location.reload()}>Reintentar</button>
+        </div>
+      ) : allImagesLoaded ? (
+        <>
+          <SearchBar
+            search={search}
+            onSearch={setSearch}
+            resultCount={filtered.length}
+          />
+          <CharacterGrid characters={filtered} />
+        </>
+      ) : (
+        <div className={styles.loadingBar}></div>
+      )}
+    </main>
+  );
+};
+
+export default Home;

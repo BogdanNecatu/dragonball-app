@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useCharactersStore } from "../../store/useCharactersStore";
-import useImagesLoaded from "../../hooks/useImagesLoaded";
-import CharacterDetail from "../../pages/CharacterDetail";
+import { useCharactersStore } from "../../../features/characters/store/useCharactersStore";
+import CharacterDetail from "../../../features/characters/pages/CharacterDetail/CharacterDetail";
+import useImagesLoaded from "../../common/hooks/useImagesLoaded";
 import styles from "./CharacterDetailPage.module.css";
 
 export default function CharacterDetailPage() {
