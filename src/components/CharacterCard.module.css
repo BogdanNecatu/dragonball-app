@@ -29,7 +29,6 @@
   overflow: hidden;
 }
 
-/* Fondo rojo deslizando desde la línea */
 .footer::before {
   content: "";
   position: absolute;

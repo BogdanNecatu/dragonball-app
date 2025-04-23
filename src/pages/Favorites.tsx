@@ -2,7 +2,9 @@ import { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import CharacterGrid from "../components/CharacterGrid";
 import { useCharactersStore } from "../store/useCharactersStore";
+import useImagesLoaded from "../hooks/useImagesLoaded";
 import { Character } from "../types";
+import styles from "./Favorites.module.css";
 
 const Favorites = () => {
   const { favorites } = useCharactersStore();
@@ -12,15 +14,26 @@ const Favorites = () => {
     char.name.toLowerCase().split(" ")[0].startsWith(search.toLowerCase())
   );
 
+  const imageUrls = filtered.map((char) => char.image);
+  const allImagesLoaded = useImagesLoaded(imageUrls);
+
   return (
-    <main className="w-full max-w-7xl mx-auto px-6 py-6">
-      <h1 className="text-3xl font-bold mb-4">FAVORITES</h1>
-      <SearchBar
-        search={search}
-        onSearch={setSearch}
-        resultCount={filtered.length}
-      />
-      <CharacterGrid characters={filtered} />
+    <main
+      className={`${styles.wrapper} ${allImagesLoaded ? styles.loaded : ""}`}
+    >
+      {allImagesLoaded ? (
+        <>
+          <h1 className={styles.title}>FAVORITES</h1>
+          <SearchBar
+            search={search}
+            onSearch={setSearch}
+            resultCount={filtered.length}
+          />
+          <CharacterGrid characters={filtered} />
+        </>
+      ) : (
+        <div className={styles.loadingBar}></div>
+      )}
     </main>
   );
 };

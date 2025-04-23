@@ -1,4 +1,3 @@
-// src/hooks/useImagesLoaded.ts
 import { useEffect, useState } from "react";
 
 export default function useImagesLoaded(urls: string[]) {

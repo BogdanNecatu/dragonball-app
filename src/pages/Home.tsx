@@ -3,6 +3,7 @@ import SearchBar from "../components/SearchBar";
 import CharacterGrid from "../components/CharacterGrid";
 import { useCharactersStore } from "../store/useCharactersStore";
 import { Character } from "../types";
+import styles from "./Home.module.css";
 
 const Home = () => {
   const { characters, fetchCharacters } = useCharactersStore();
@@ -17,7 +18,7 @@ const Home = () => {
   );
 
   return (
-    <main className="w-full max-w-7xl mx-auto">
+    <main className={styles.main}>
       <SearchBar
         search={search}
         onSearch={setSearch}
