@@ -10,7 +10,7 @@ type Props = {
 
 const CharacterCard = ({ id, name, image }: Props) => {
   const { toggleFavorite, isFavorite } = useCharactersStore();
-  const fav = isFavorite(id);
+  const fav = isFavorite(Number(id));
 
   const character = useCharactersStore((state) =>
     state.characters.find((c) => Number(c.id) === Number(id))

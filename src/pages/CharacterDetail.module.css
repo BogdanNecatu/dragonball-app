@@ -164,16 +164,24 @@
   color: gray;
 }
 
-.scrollContainer::-webkit-scrollbar {
-  height: 4px;
+@media (min-width: 1024px) {
+  .scrollContainer::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .scrollContainer::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+  }
+
+  .scrollContainer::-webkit-scrollbar-thumb {
+    background-color: #ec1d24;
+    border-radius: 4px;
+  }
 }
 
-.scrollContainer::-webkit-scrollbar-track {
-  background: #f0f0f0;
-  border-radius: 4px;
-}
-
-.scrollContainer::-webkit-scrollbar-thumb {
-  background-color: #ec1d24;
-  border-radius: 4px;
+@media (max-width: 1024px) {
+  .scrollContainer::-webkit-scrollbar {
+    display: none;
+  }
 }
