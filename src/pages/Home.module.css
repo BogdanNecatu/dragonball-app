@@ -3,8 +3,31 @@
   margin: 0;
 }
 
-/* @media (max-width: 768px) {
-  .main {
-    padding: 0 16px 0 16px;
+.main {
+  width: 100%;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px); /* Animación desde abajo */
+  transition: all 0.35s ease-in-out;
+}
+
+.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.loadingBar {
+  height: 6px;
+  background-color: #ec1d24;
+  width: 100%;
+  animation: loadingSlide 3s ease-in-out infinite alternate;
+}
+
+@keyframes loadingSlide {
+  from {
+    transform: translateX(-100%);
   }
-} */
+  to {
+    transform: translateX(100%);
+  }
+}

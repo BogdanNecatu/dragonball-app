@@ -3,17 +3,17 @@ import { useCharactersStore } from "../store/useCharactersStore";
 import styles from "./CharacterCard.module.css";
 
 type Props = {
-  id: string;
+  id: number;
   name: string;
   image: string;
 };
 
 const CharacterCard = ({ id, name, image }: Props) => {
   const { toggleFavorite, isFavorite } = useCharactersStore();
-  const fav = isFavorite(Number(id));
+  const fav = isFavorite(id);
 
   const character = useCharactersStore((state) =>
-    state.characters.find((c) => Number(c.id) === Number(id))
+    state.characters.find((c) => c.id === id)
   );
 
   return (

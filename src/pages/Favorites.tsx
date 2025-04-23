@@ -18,23 +18,25 @@ const Favorites = () => {
   const allImagesLoaded = useImagesLoaded(imageUrls);
 
   return (
-    <main
-      className={`${styles.wrapper} ${allImagesLoaded ? styles.loaded : ""}`}
-    >
-      {allImagesLoaded ? (
-        <>
-          <h1 className={styles.title}>FAVORITES</h1>
-          <SearchBar
-            search={search}
-            onSearch={setSearch}
-            resultCount={filtered.length}
-          />
-          <CharacterGrid characters={filtered} />
-        </>
-      ) : (
-        <div className={styles.loadingBar}></div>
-      )}
-    </main>
+    <div className={styles.wrapper}>
+      <h1 className={styles.title}>FAVORITES</h1>
+      <main
+        className={`${styles.main} ${allImagesLoaded ? styles.loaded : ""}`}
+      >
+        {allImagesLoaded ? (
+          <>
+            <SearchBar
+              search={search}
+              onSearch={setSearch}
+              resultCount={filtered.length}
+            />
+            <CharacterGrid characters={filtered} />
+          </>
+        ) : (
+          <div className={styles.loadingBar}></div>
+        )}
+      </main>
+    </div>
   );
 };
 

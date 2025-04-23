@@ -19,8 +19,9 @@ export const fetchCharacters = async () => {
     allCharacters.push(...res.data.items);
   });
 
+  const limitedCharacters = allCharacters.slice(0, 50);
   // Peticiones adicionales por personaje para obtener el detalle
-  const detailedRequests = allCharacters.map((char) =>
+  const detailedRequests = limitedCharacters.map((char) =>
     axiosInstance.get(`${char.id}`)
   );
 

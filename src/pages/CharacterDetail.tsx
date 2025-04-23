@@ -106,7 +106,7 @@ export default function CharacterDetail() {
 
       <section className={styles.transformations}>
         <div className={styles.transformationsInner}>
-          <h2>TRANSFORMACIONES</h2>
+          <h2>TRANSFORMATIONS</h2>
           <div className={styles.scrollWrapper}>
             <div className={styles.scrollContainer} ref={scrollRef}>
               {sortedTransformations.length > 0 ? (
@@ -126,7 +126,7 @@ export default function CharacterDetail() {
                 ))
               ) : (
                 <p className={styles.noTransformations}>
-                  Este personaje no tiene transformaciones registradas.
+                  This character has no recorded transformations.
                 </p>
               )}
             </div>
