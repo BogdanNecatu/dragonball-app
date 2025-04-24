@@ -1,50 +1,11 @@
 import styles from "./CharacterDetail.module.css";
-import { useParams } from "react-router-dom";
-import { useCharactersStore } from "../../store/useCharactersStore";
-import { useHorizontalScroll } from "../../../../shared/common/hooks/useHorizontalScroll";
+import { useCharacterDetail } from "./useCharacterDetail";
 
 export default function CharacterDetail() {
-  const { toggleFavorite, isFavorite } = useCharactersStore();
-  const { id } = useParams();
-  const scrollRef = useHorizontalScroll<HTMLDivElement>();
-
-  if (!id) return null;
-
-  const fav = isFavorite(Number(id));
-
-  const character = useCharactersStore((state) =>
-    state.characters.find((c) => Number(c.id) === Number(id))
-  );
+  const { character, fav, toggleFavorite, scrollRef, sortedTransformations } =
+    useCharacterDetail();
 
   if (!character) return <p className="p-4">Personaje no encontrado.</p>;
-
-  const parseKi = (kiString: string): number => {
-    const units: Record<string, number> = {
-      Million: 1e6,
-      Billion: 1e9,
-      Trillion: 1e12,
-      Quadrillion: 1e15,
-      Quintillion: 1e18,
-      Sextillion: 1e21,
-      Septillion: 1e24,
-    };
-
-    if (!kiString.includes(" ")) {
-      const numeric = parseFloat(kiString.replace(/\./g, "").replace(/,/g, ""));
-      return isNaN(numeric) ? 0 : numeric;
-    }
-
-    const [numberPart, unit] = kiString.split(" ");
-    const cleaned = numberPart.replace(/[\.,]/g, "");
-    const base = parseFloat(cleaned);
-    const multiplier = units[unit] || 1;
-
-    return isNaN(base) ? 0 : base * multiplier;
-  };
-
-  const sortedTransformations = [...(character.transformations || [])].sort(
-    (a, b) => parseKi(a.ki) - parseKi(b.ki)
-  );
 
   return (
     <div className={styles.container}>
