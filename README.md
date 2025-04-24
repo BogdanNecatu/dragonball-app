@@ -89,9 +89,10 @@ Los assets se sirven minimizados y optimizados.
 
 📝 Tests
 
-npm run test
+Testing Library + Vitest + Cypres:
 
-Testing Library + Jest
+Run e2e test: npm run e2e
+Run Unitari test: npm run test
 
 Se testean renderizados y funcionalidades básicas (ej: favoritos)
 
