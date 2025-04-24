@@ -82,6 +82,7 @@ Esto levantará un servidor en http://localhost:5173.
 🚨 Ejecución en modo producción
 
 npm run build
+
 npm run preview
 
 Los assets se sirven minimizados y optimizados.
