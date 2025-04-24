@@ -4,7 +4,7 @@ Esta es una aplicación desarrollada como prueba técnica para mostrar informaci
 
 🚀 Demo
 
-Puedes ver la demo online (opcional si se publica): https://dragonball-app.vercel.app
+Puedes ver la demo online (opcional si se publica): https://dragonball-app-characters.vercel.app/
 
 📄 Contenido
 
@@ -85,24 +85,6 @@ npm run build
 npm run preview
 
 Los assets se sirven minimizados y optimizados.
-
-📁 Estructura del proyecto
-
-/
-├── public/
-├── src/
-│ ├── api/ # Lógica de peticiones HTTP
-│ ├── components/ # Componentes reutilizables
-│ ├── pages/ # Páginas principales
-│ ├── store/ # Zustand store
-│ ├── styles/ # CSS Modules
-│ ├── hooks/ # Custom hooks
-│ └── types/ # Tipado TypeScript
-├── .eslintrc.cjs
-├── .prettierrc
-├── README.md
-├── tsconfig.json
-└── vite.config.ts
 
 📝 Tests
 
