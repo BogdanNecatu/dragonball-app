@@ -92,7 +92,8 @@ Los assets se sirven minimizados y optimizados.
 Testing Library + Vitest + Cypres:
 
 Run e2e test: npm run e2e
-Run Unitari test: npm run test
+
+Run Unit test: npm run test
 
 Se testean renderizados y funcionalidades básicas (ej: favoritos)
 
