@@ -14,33 +14,25 @@ const CharacterCard = ({ id, name, image }: Props) => {
   const { toggleFavorite, isFavorite } = useCharactersStore();
   const fav = isFavorite(id);
 
-  const character = useCharactersStore((state) =>
-    state.characters.find((c) => c.id === id)
-  );
+  const character = useCharactersStore((state) => state.characters.find((c) => c.id === id));
 
   return (
-    <Link to={`/character/${id}`} className={styles.card}>
+    <Link to={`/character/${id}`} className={styles.card} data-testid="character-card">
       <div className={styles.imageWrapper}>
-        <img
-          src={image}
-          alt={name}
-          className={styles.image}
-          draggable={false}
-        />
-        <div className={`${styles.footer} ${fav ? styles.favorite : ""}`}>
+        <img src={image} alt={name} className={styles.image} draggable={false} />
+        <div className={`${styles.footer} ${fav ? styles.favorite : ''}`}>
           <div className={styles.nameWrapper}>
-            <span className={styles.name}>{name}</span>
+            <span className={styles.name} data-testid="character-card-name">
+              {name}
+            </span>
             <span
+              data-testid={`favorite-toggle-${id}`}
               onClick={(e) => {
                 e.preventDefault();
                 character && toggleFavorite(character);
               }}
             >
-              {fav ? (
-                <FilledHeartIcon width={12} height={10.84} fill="#EC1D24" />
-              ) : (
-                <OutlineHeartIcon />
-              )}
+              {fav ? <FilledHeartIcon width={12} height={10.84} fill="#EC1D24" /> : <OutlineHeartIcon />}
             </span>
           </div>
         </div>

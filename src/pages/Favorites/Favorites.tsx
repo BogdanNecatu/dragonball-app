@@ -19,7 +19,9 @@ const Favorites = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>FAVORITES</h1>
+      <h1 className={styles.title} data-testid="favorites-name">
+        FAVORITES
+      </h1>
       <main className={`${styles.main} ${allImagesLoaded ? styles.loaded : ''}`}>
         {allImagesLoaded ? (
           <>

@@ -21,7 +21,9 @@ const Header = () => {
       </NavLink>
       <NavLink to="/favorites">
         <FilledHeartIcon width={24} height={21.68} fill="#EC1D24" />
-        <span className={styles.fav}>{favorites.length}</span>
+        <span className={styles.fav} data-testid="favorites-counter">
+          {favorites.length}
+        </span>
       </NavLink>
     </header>
   );

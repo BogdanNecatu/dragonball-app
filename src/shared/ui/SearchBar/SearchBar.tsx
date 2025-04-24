@@ -20,7 +20,9 @@ const SearchBar = ({ search, onSearch, resultCount }: Props) => {
           className={styles.input}
         />
       </div>
-      <p className={styles.result}>{resultCount} RESULTS</p>
+      <p className={styles.result} data-testid="result-count">
+        {resultCount} RESULTS
+      </p>
     </div>
   );
 };

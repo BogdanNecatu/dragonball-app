@@ -12,20 +12,18 @@ export default function CharacterDetail() {
     <div className={styles.container}>
       <section className={styles.heroSection}>
         <div className={styles.heroInner}>
-          <img
-            src={character.image}
-            alt={character.name}
-            draggable={false}
-            className={styles.characterImage}
-          />
+          <img src={character.image} alt={character.name} draggable={false} className={styles.characterImage} />
           <div className={styles.characterInfo}>
             <div className={styles.characterName}>
-              <h1 className={styles.name}>{character.name.toUpperCase()}</h1>
+              <h1 className={styles.name} data-testid="character-name">
+                {character.name.toUpperCase()}
+              </h1>
               <span
                 onClick={(e) => {
                   e.preventDefault();
                   character && toggleFavorite(character);
                 }}
+                data-testid="favorite-toggle-"
               >
                 {fav ? (
                   <FilledHeartIcon width={24} height={21.68} fill="#EC1D24" />
@@ -35,35 +33,34 @@ export default function CharacterDetail() {
               </span>
             </div>
 
-            <p className={styles.description}>{character.description}</p>
+            <p className={styles.description} data-testid="character-description">
+              {character.description}
+            </p>
           </div>
         </div>
       </section>
 
       <section className={styles.transformations}>
         <div className={styles.transformationsInner}>
-          <h2>TRANSFORMATIONS</h2>
+          <h2 data-testid="transformation">TRANSFORMATIONS</h2>
           <div className={styles.scrollWrapper}>
             <div className={styles.scrollContainer} ref={scrollRef}>
               {sortedTransformations.length > 0 ? (
                 sortedTransformations.map((t) => (
-                  <div key={t.id} className={styles.card}>
-                    <img
-                      src={t.image}
-                      alt={t.name}
-                      draggable={false}
-                      className={styles.transformationImage}
-                    />
+                  <div key={t.id} className={styles.card} data-testid="transformation-card">
+                    <img src={t.image} alt={t.name} draggable={false} className={styles.transformationImage} />
                     <div className={styles.cardInfo}>
-                      <p className={styles.cardTitle}>{t.name}</p>
-                      <p className={styles.cardKi}>Ki: {t.ki}</p>
+                      <p className={styles.cardTitle} data-testid="transformation-name">
+                        {t.name}
+                      </p>
+                      <p className={styles.cardKi} data-testid="transformation-ki">
+                        Ki: {t.ki}
+                      </p>
                     </div>
                   </div>
                 ))
               ) : (
-                <p className={styles.noTransformations}>
-                  This character has no recorded transformations.
-                </p>
+                <p className={styles.noTransformations}>This character has no recorded transformations.</p>
               )}
             </div>
           </div>
