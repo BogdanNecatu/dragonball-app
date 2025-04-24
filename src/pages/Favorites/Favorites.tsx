@@ -23,11 +23,7 @@ const Favorites = () => {
       <main className={`${styles.main} ${allImagesLoaded ? styles.loaded : ''}`}>
         {allImagesLoaded ? (
           <>
-            <SearchBar
-              search={search}
-              onSearch={setSearch}
-              resultCount={filtered.length}
-            />
+            <SearchBar search={search} onSearch={setSearch} resultCount={filtered.length} />
             <CharacterGrid characters={filtered} />
           </>
         ) : (

@@ -37,9 +37,7 @@ export function useCharacterDetail() {
   );
 
   const sortedTransformations =
-    character?.transformations
-      ?.slice()
-      .sort((a, b) => parseKi(a.ki) - parseKi(b.ki)) || [];
+    character?.transformations?.slice().sort((a, b) => parseKi(a.ki) - parseKi(b.ki)) || [];
 
   const fav = isFavorite(Number(id));
 

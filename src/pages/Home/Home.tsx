@@ -44,11 +44,7 @@ const Home = () => {
         </div>
       ) : allImagesLoaded ? (
         <>
-          <SearchBar
-            search={search}
-            onSearch={setSearch}
-            resultCount={filtered.length}
-          />
+          <SearchBar search={search} onSearch={setSearch} resultCount={filtered.length} />
           <CharacterGrid characters={filtered} />
         </>
       ) : (

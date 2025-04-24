@@ -11,16 +11,16 @@ const Header = () => {
 
   return (
     <header className={`${styles.header} ${isDetail ? styles.borderBottom : ''}`}>
-      <NavLink to='/' className={styles.logo}>
+      <NavLink to="/" className={styles.logo}>
         <img
           src={dragonballLogo}
-          alt='Dragon Ball Logo'
+          alt="Dragon Ball Logo"
           draggable={false}
           className={styles.logo}
         />
       </NavLink>
-      <NavLink to='/favorites'>
-        <FilledHeartIcon width={24} height={21.68} fill='#EC1D24' />
+      <NavLink to="/favorites">
+        <FilledHeartIcon width={24} height={21.68} fill="#EC1D24" />
         <span className={styles.fav}>{favorites.length}</span>
       </NavLink>
     </header>

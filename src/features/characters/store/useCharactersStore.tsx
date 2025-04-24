@@ -16,9 +16,7 @@ export const useCharactersStore = create<StoreState>()(
             favorites: get().favorites.filter((f) => f.id !== character.id),
           });
         } else {
-          const fullCharacter = get().characters.find(
-            (c) => c.id === character.id
-          );
+          const fullCharacter = get().characters.find((c) => c.id === character.id);
           if (fullCharacter) {
             set({ favorites: [...get().favorites, fullCharacter] });
           }

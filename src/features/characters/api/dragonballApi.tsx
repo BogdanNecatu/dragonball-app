@@ -30,9 +30,7 @@ export const fetchCharacters = async () => {
     const limitedCharacters = allCharacters.slice(0, 50);
 
     // Peticiones adicionales por personaje para obtener el detalle
-    const detailedRequests = limitedCharacters.map((char) =>
-      axiosInstance.get(`${char.id}`)
-    );
+    const detailedRequests = limitedCharacters.map((char) => axiosInstance.get(`${char.id}`));
 
     const detailedResponses = await Promise.allSettled(detailedRequests);
 
