@@ -22,6 +22,7 @@
       "@types/*": ["types/*"]
     }
   },
-  "include": ["src", "vite.config.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src", "vite.config.ts", "cypress/support/index.d.ts"],
+  "exclude": ["node_modules"],
+  "types": ["cypress"]
 }
