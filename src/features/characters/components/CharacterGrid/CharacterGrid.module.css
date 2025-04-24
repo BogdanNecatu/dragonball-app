@@ -10,5 +10,6 @@
   .grid {
     padding: 0 16px 0 16px;
     grid-template-columns: repeat(auto-fit, minmax(172.5px, 172.5px));
+    gap: 8px;
   }
 }
