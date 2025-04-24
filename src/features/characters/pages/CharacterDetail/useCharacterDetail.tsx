@@ -1,7 +1,7 @@
 // src/components/UI/CharacterDetail/useCharacterDetail.ts
-import { useParams } from "react-router-dom";
-import { useCharactersStore } from "../../store/useCharactersStore";
-import { useHorizontalScroll } from "../../../../shared/common/hooks/useHorizontalScroll";
+import { useParams } from 'react-router-dom';
+import { useCharactersStore } from '../../store/useCharactersStore';
+import { useHorizontalScroll } from '../../../../shared/common/hooks/useHorizontalScroll';
 
 const parseKi = (kiString: string): number => {
   const units: Record<string, number> = {
@@ -14,13 +14,13 @@ const parseKi = (kiString: string): number => {
     Septillion: 1e24,
   };
 
-  if (!kiString.includes(" ")) {
-    const numeric = parseFloat(kiString.replace(/\./g, "").replace(/,/g, ""));
+  if (!kiString.includes(' ')) {
+    const numeric = parseFloat(kiString.replace(/\./g, '').replace(/,/g, ''));
     return isNaN(numeric) ? 0 : numeric;
   }
 
-  const [numberPart, unit] = kiString.split(" ");
-  const cleaned = numberPart.replace(/[\.,]/g, "");
+  const [numberPart, unit] = kiString.split(' ');
+  const cleaned = numberPart.replace(/[\.,]/g, '');
   const base = parseFloat(cleaned);
   const multiplier = units[unit] || 1;
 
@@ -33,7 +33,7 @@ export function useCharacterDetail() {
   const { toggleFavorite, isFavorite } = useCharactersStore();
 
   const character = useCharactersStore((state) =>
-    state.characters.find((c) => Number(c.id) === Number(id))
+    state.characters.find((c) => Number(c.id) === Number(id)),
   );
 
   const sortedTransformations =

@@ -10,14 +10,14 @@
 }
 
 .heroSection::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   right: 0;
   width: 30px;
   height: 30px;
   background-color: white;
-  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  clip-path: polygon(100% 0, 0 110%, 110% 100%);
 }
 
 @media (min-width: 768px) {

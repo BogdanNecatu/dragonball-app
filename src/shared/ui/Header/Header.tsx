@@ -1,22 +1,21 @@
-import { NavLink, useLocation } from "react-router-dom";
-import { useCharactersStore } from "../../../features/characters/store/useCharactersStore";
-import styles from "./Header.module.css";
-import dragonballLogo from "../../../assets/images/logo-dragon-ball-api.png";
-import FilledHeartIcon from "../../../assets/icons/FilledHeartIcon";
+import { NavLink, useLocation } from 'react-router-dom';
+import { useCharactersStore } from '../../../features/characters/store/useCharactersStore';
+import styles from './Header.module.css';
+import dragonballLogo from '../../../assets/images/logo-dragon-ball-api.png';
+import FilledHeartIcon from '../../../assets/icons/FilledHeartIcon';
 
 const Header = () => {
   const location = useLocation();
   const favorites = useCharactersStore((state) => state.favorites);
-  const isDetail = location.pathname.startsWith("/character/");
+  const isDetail = location.pathname.startsWith('/character/');
 
   return (
-    <header
-      className={`${styles.header} ${isDetail ? styles.borderBottom : ""}`}
-    >
+    <header className={`${styles.header} ${isDetail ? styles.borderBottom : ''}`}>
       <NavLink to="/" className={styles.logo}>
         <img
           src={dragonballLogo}
           alt="Dragon Ball Logo"
+          draggable={false}
           className={styles.logo}
         />
       </NavLink>

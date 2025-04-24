@@ -1,11 +1,11 @@
-import axiosInstance from "../../../shared/api/axiosInstance";
+import axiosInstance from '../../../shared/api/axiosInstance';
 
 export const fetchCharacters = async () => {
   try {
     const allCharacters: any[] = [];
 
     // Petición inicial
-    const firstResponse = await axiosInstance.get("");
+    const firstResponse = await axiosInstance.get('');
     const { items, meta } = firstResponse.data;
 
     allCharacters.push(...items);
@@ -20,10 +20,10 @@ export const fetchCharacters = async () => {
     const responses = await Promise.allSettled(requests);
 
     responses.forEach((res) => {
-      if (res.status === "fulfilled") {
+      if (res.status === 'fulfilled') {
         allCharacters.push(...res.value.data.items);
       } else {
-        console.warn("Failed to load page:", res.reason);
+        console.warn('Failed to load page:', res.reason);
       }
     });
 
@@ -37,14 +37,12 @@ export const fetchCharacters = async () => {
     const detailedResponses = await Promise.allSettled(detailedRequests);
 
     const detailedCharacters = detailedResponses
-      .filter((res) => res.status === "fulfilled")
+      .filter((res) => res.status === 'fulfilled')
       .map((res: any) => res.value.data);
 
     return detailedCharacters;
   } catch (error) {
-    console.error("Error fetching Dragon Ball characters:", error);
-    throw new Error(
-      "Failed to fetch Dragon Ball characters. Please try again later."
-    );
+    console.error('Error fetching Dragon Ball characters:', error);
+    throw new Error('Failed to fetch Dragon Ball characters. Please try again later.');
   }
 };

@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
-import SearchBar from "../../shared/ui/SearchBar/SearchBar";
-import CharacterGrid from "../../features/characters/components/CharacterGrid/CharacterGrid";
-import { useCharactersStore } from "../../features/characters/store/useCharactersStore";
-import useImagesLoaded from "../../shared/common/hooks/useImagesLoaded";
-import { Character } from "../../features/characters/types";
-import styles from "./Home.module.css";
+import { useState, useEffect } from 'react';
+import SearchBar from '../../shared/ui/SearchBar/SearchBar';
+import CharacterGrid from '../../features/characters/components/CharacterGrid/CharacterGrid';
+import { useCharactersStore } from '../../features/characters/store/useCharactersStore';
+import useImagesLoaded from '../../shared/common/hooks/useImagesLoaded';
+import { Character } from '../../features/characters/types';
+import styles from './Home.module.css';
 
 const Home = () => {
   const { characters, fetchCharacters } = useCharactersStore();
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
   const [error, setError] = useState<string | null>(null);
 
@@ -20,7 +20,7 @@ const Home = () => {
         if (err instanceof Error) {
           setError(err.message);
         } else {
-          setError("An unexpected error occurred.");
+          setError('An unexpected error occurred.');
         }
       }
     };
@@ -29,14 +29,14 @@ const Home = () => {
   }, [fetchCharacters]);
 
   const filtered = characters.filter((char: Character) =>
-    char.name.toLowerCase().split(" ")[0].startsWith(search.toLowerCase())
+    char.name.toLowerCase().split(' ')[0].startsWith(search.toLowerCase()),
   );
 
   const imageUrls = filtered.map((char) => char.image);
   const allImagesLoaded = useImagesLoaded(imageUrls);
 
   return (
-    <main className={`${styles.main} ${allImagesLoaded ? styles.loaded : ""}`}>
+    <main className={`${styles.main} ${allImagesLoaded ? styles.loaded : ''}`}>
       {error ? (
         <div className={styles.errorMessage}>
           <p>{error}</p>

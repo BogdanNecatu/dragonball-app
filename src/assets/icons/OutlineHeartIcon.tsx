@@ -1,8 +1,15 @@
-const OutlineHeartIcon = ({ className }: { className?: string }) => (
+type Props = {
+  width?: number | string;
+  height?: number | string;
+  className?: string;
+  fill?: string;
+};
+
+const OutlineHeartIcon = ({ width = 12, height = 10.84, className }: Props) => (
   <svg
     className={className}
-    width="12"
-    height="10.84"
+    width={width}
+    height={height}
     viewBox="0 0 26 25"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

@@ -30,7 +30,7 @@
 }
 
 .footer::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background-color: #ec1d24;
@@ -40,14 +40,14 @@
 }
 
 .footer::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   right: 0;
   width: 12.86px;
   height: 12.86px;
   background-color: white;
-  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  clip-path: polygon(100% 0, 0 110%, 110% 100%);
   z-index: 2;
 }
 .card:hover .footer::before {

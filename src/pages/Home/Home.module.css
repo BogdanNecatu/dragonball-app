@@ -62,7 +62,9 @@
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .errorMessage button:hover {

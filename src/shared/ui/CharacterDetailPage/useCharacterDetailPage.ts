@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useCharactersStore } from "../../../features/characters/store/useCharactersStore";
-import useImagesLoaded from "../../common/hooks/useImagesLoaded";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useCharactersStore } from '../../../features/characters/store/useCharactersStore';
+import useImagesLoaded from '../../common/hooks/useImagesLoaded';
 
 export function useCharacterDetailPage() {
   const { id } = useParams();
@@ -9,14 +9,13 @@ export function useCharacterDetailPage() {
   const [showBar, setShowBar] = useState(true);
 
   const character = useCharactersStore((s) =>
-    s.characters.find((c) => Number(c.id) === Number(id))
+    s.characters.find((c) => Number(c.id) === Number(id)),
   );
 
-  const transformationImages =
-    character?.transformations?.map((t) => t.image) || [];
+  const transformationImages = character?.transformations?.map((t) => t.image) || [];
 
   const imagesLoaded = useImagesLoaded(
-    [character?.image, ...transformationImages].filter(Boolean) as string[]
+    [character?.image, ...transformationImages].filter(Boolean) as string[],
   );
 
   useEffect(() => {

@@ -1,8 +1,8 @@
-import FilledHeartIcon from "../../../../assets/icons/FilledHeartIcon";
-import OutlineHeartIcon from "../../../../assets/icons/OutlineHeartIcon";
-import { Link } from "react-router-dom";
-import { useCharactersStore } from "../../store/useCharactersStore";
-import styles from "./CharacterCard.module.css";
+import FilledHeartIcon from '../../../../assets/icons/FilledHeartIcon';
+import OutlineHeartIcon from '../../../../assets/icons/OutlineHeartIcon';
+import { Link } from 'react-router-dom';
+import { useCharactersStore } from '../../store/useCharactersStore';
+import styles from './CharacterCard.module.css';
 
 type Props = {
   id: number;

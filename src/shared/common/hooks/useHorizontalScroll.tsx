@@ -1,8 +1,6 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect } from 'react';
 
-export function useHorizontalScroll<
-  T extends HTMLElement
->(): React.RefObject<T> {
+export function useHorizontalScroll<T extends HTMLElement>(): React.RefObject<T | null> {
   const elRef = useRef<T>(null);
 
   useEffect(() => {
@@ -15,19 +13,19 @@ export function useHorizontalScroll<
 
     const onMouseDown = (e: MouseEvent) => {
       isDown = true;
-      el.classList.add("scrolling"); // opcional: para estilos
+      el.classList.add('scrolling');
       startX = e.pageX - el.offsetLeft;
       scrollLeft = el.scrollLeft;
     };
 
     const onMouseLeave = () => {
       isDown = false;
-      el.classList.remove("scrolling");
+      el.classList.remove('scrolling');
     };
 
     const onMouseUp = () => {
       isDown = false;
-      el.classList.remove("scrolling");
+      el.classList.remove('scrolling');
     };
 
     const onMouseMove = (e: MouseEvent) => {
@@ -38,16 +36,16 @@ export function useHorizontalScroll<
       el.scrollLeft = scrollLeft - walk;
     };
 
-    el.addEventListener("mousedown", onMouseDown);
-    el.addEventListener("mouseleave", onMouseLeave);
-    el.addEventListener("mouseup", onMouseUp);
-    el.addEventListener("mousemove", onMouseMove);
+    el.addEventListener('mousedown', onMouseDown);
+    el.addEventListener('mouseleave', onMouseLeave);
+    el.addEventListener('mouseup', onMouseUp);
+    el.addEventListener('mousemove', onMouseMove);
 
     return () => {
-      el.removeEventListener("mousedown", onMouseDown);
-      el.removeEventListener("mouseleave", onMouseLeave);
-      el.removeEventListener("mouseup", onMouseUp);
-      el.removeEventListener("mousemove", onMouseMove);
+      el.removeEventListener('mousedown', onMouseDown);
+      el.removeEventListener('mouseleave', onMouseLeave);
+      el.removeEventListener('mouseup', onMouseUp);
+      el.removeEventListener('mousemove', onMouseMove);
     };
   }, []);
 

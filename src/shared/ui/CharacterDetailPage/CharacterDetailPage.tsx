@@ -1,6 +1,6 @@
-import CharacterDetail from "../../../features/characters/pages/CharacterDetail/CharacterDetail";
-import { useCharacterDetailPage } from "./useCharacterDetailPage";
-import styles from "./CharacterDetailPage.module.css";
+import CharacterDetail from '../../../features/characters/pages/CharacterDetail/CharacterDetail';
+import { useCharacterDetailPage } from './useCharacterDetailPage';
+import styles from './CharacterDetailPage.module.css';
 
 export default function CharacterDetailPage() {
   const { character, showBar, showDetail } = useCharacterDetailPage();

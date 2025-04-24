@@ -1,5 +1,5 @@
-import SearchIcon from "../../../assets/icons/SearchIcon";
-import styles from "./SearchBar.module.css";
+import SearchIcon from '../../../assets/icons/SearchIcon';
+import styles from './SearchBar.module.css';
 
 type Props = {
   search: string;
