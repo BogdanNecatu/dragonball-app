@@ -23,7 +23,7 @@ export default function CharacterDetail() {
                   e.preventDefault();
                   character && toggleFavorite(character);
                 }}
-                data-testid="favorite-toggle-"
+                data-testid={`favorite-toggle-${character?.id}`}
               >
                 {fav ? (
                   <FilledHeartIcon width={24} height={21.68} fill="#EC1D24" />

@@ -21,9 +21,8 @@
     "paths": {
       "@types/*": ["types/*"]
     },
-    "types": ["cypress"]
+    "types": ["cypress", "vitest", "jest", "@testing-library/jest-dom"]
   },
   "include": ["src", "vite.config.ts", "cypress/support/index.d.ts"],
-  "exclude": ["node_modules"],
-  "types": ["cypress"]
+  "exclude": ["node_modules"]
 }

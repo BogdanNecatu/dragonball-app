@@ -8,15 +8,13 @@ export function useCharacterDetailPage() {
   const [showDetail, setShowDetail] = useState(false);
   const [showBar, setShowBar] = useState(true);
 
-  const character = useCharactersStore((s) =>
-    s.characters.find((c) => Number(c.id) === Number(id)),
-  );
+  const character = useCharactersStore((s) => s.characters.find((c) => Number(c.id) === Number(id)));
+
+  const isNotFound = !character;
 
   const transformationImages = character?.transformations?.map((t) => t.image) || [];
 
-  const imagesLoaded = useImagesLoaded(
-    [character?.image, ...transformationImages].filter(Boolean) as string[],
-  );
+  const imagesLoaded = useImagesLoaded([character?.image, ...transformationImages].filter(Boolean) as string[]);
 
   useEffect(() => {
     const barTimer = setTimeout(() => setShowBar(false), 700);
@@ -34,5 +32,6 @@ export function useCharacterDetailPage() {
     character,
     showBar,
     showDetail,
+    isNotFound,
   };
 }

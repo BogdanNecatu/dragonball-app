@@ -1,9 +1,12 @@
 import CharacterDetail from '../../../features/characters/pages/CharacterDetail/CharacterDetail';
 import { useCharacterDetailPage } from './useCharacterDetailPage';
 import styles from './CharacterDetailPage.module.css';
+import NotFoundCharacter from '../../../features/characters/components/NotFoundCharacter/NotFoundCharacter';
 
 export default function CharacterDetailPage() {
-  const { character, showBar, showDetail } = useCharacterDetailPage();
+  const { character, showBar, showDetail, isNotFound } = useCharacterDetailPage();
+
+  if (isNotFound) return <NotFoundCharacter />;
 
   return (
     <>
