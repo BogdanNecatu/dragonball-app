@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import SearchBar from '../../shared/ui/SearchBar/SearchBar';
-import CharacterGrid from '../../features/characters/components/CharacterGrid/CharacterGrid';
+import SearchCharacter from '../../features/searchCharacter/SearchCharacter';
+import CharacterList from '../../widgets/CharacterList/CharacterLis';
 import { useCharactersStore } from '../../features/characters/store/useCharactersStore';
-import useImagesLoaded from '../../shared/common/hooks/useImagesLoaded';
-import { Character } from '../../features/characters/types';
+import useImagesLoaded from '../../shared/lib/hooks/useImagesLoaded';
+import { Character } from '../../entities/characters/types';
 import styles from './Favorites.module.css';
 
 const Favorites = () => {
@@ -25,8 +25,8 @@ const Favorites = () => {
       <main className={`${styles.main} ${allImagesLoaded ? styles.loaded : ''}`}>
         {allImagesLoaded ? (
           <>
-            <SearchBar search={search} onSearch={setSearch} resultCount={filtered.length} />
-            <CharacterGrid characters={filtered} />
+            <SearchCharacter search={search} onSearch={setSearch} resultCount={filtered.length} />
+            <CharacterList characters={filtered} />
           </>
         ) : (
           <div className={styles.loadingBar}></div>

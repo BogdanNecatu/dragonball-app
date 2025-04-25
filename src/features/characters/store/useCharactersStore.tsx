@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { fetchCharacters as fetchDragonBallCharacters } from '../api/fetchCharacters';
-import { StoreState } from '../types';
+import { StoreState } from '../../../entities/characters/types';
 
 export const useCharactersStore = create<StoreState>()(
   persist(

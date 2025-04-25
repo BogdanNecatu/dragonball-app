@@ -3,13 +3,13 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import Home from './Home';
 import { vi } from 'vitest';
 
-vi.mock('../../shared/common/hooks/useImagesLoaded', () => ({
+vi.mock('../../shared/lib/hooks/useImagesLoaded', () => ({
   default: () => true,
 }));
 
 import { useCharactersStore } from '../../features/characters/store/useCharactersStore';
 import { MemoryRouter } from 'react-router-dom';
-import { Character } from '../../features/characters/types';
+import { Character } from '../../entities/characters/types';
 
 // Dummy character list
 const dummyCharacters: Character[] = [

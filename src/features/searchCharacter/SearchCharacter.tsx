@@ -1,0 +1,30 @@
+import SearchIcon from '../../assets/icons/SearchIcon';
+import styles from './SearchCharacter.module.css';
+
+type Props = {
+  search: string;
+  onSearch: (value: string) => void;
+  resultCount: number;
+};
+
+const SearchCharacter = ({ search, onSearch, resultCount }: Props) => {
+  return (
+    <div className={styles.wrapper}>
+      <div className={styles.inputGroup}>
+        <SearchIcon className={styles.icon} />
+        <input
+          type="text"
+          placeholder="SEARCH A CHARACTER..."
+          value={search}
+          onChange={(e) => onSearch(e.target.value)}
+          className={styles.input}
+        />
+      </div>
+      <p className={styles.result} data-testid="result-count">
+        {resultCount} RESULTS
+      </p>
+    </div>
+  );
+};
+
+export default SearchCharacter;

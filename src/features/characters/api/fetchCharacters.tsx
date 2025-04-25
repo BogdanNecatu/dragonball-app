@@ -1,8 +1,9 @@
 import axiosInstance from '../../../shared/api/axiosInstance';
+import { Character } from '../../../entities/characters/types';
 
-export const fetchCharacters = async () => {
+export const fetchCharacters = async (): Promise<Character[]> => {
   try {
-    const allCharacters: any[] = [];
+    const allCharacters: Character[] = [];
 
     // Petición inicial
     const firstResponse = await axiosInstance.get('');

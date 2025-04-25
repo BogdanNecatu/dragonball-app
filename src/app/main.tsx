@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import App from './App';
 import Home from '../pages/Home/Home';
 import Favorites from '../pages/Favorites/Favorites';
-import CharacterDetailPage from '../shared/ui//CharacterDetailPage/CharacterDetailPage';
+import CharacterDetailPage from '../widgets/CharacterDetailPage/CharacterDetailPage';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
