@@ -1,6 +1,7 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import FilledHeartIcon from '../../../../assets/icons/FilledHeartIcon';
 import OutlineHeartIcon from '../../../../assets/icons/OutlineHeartIcon';
-import { Link } from 'react-router-dom';
 import { useCharactersStore } from '../../store/useCharactersStore';
 import styles from './CharacterCard.module.css';
 
@@ -11,13 +12,22 @@ type Props = {
 };
 
 const CharacterCard = ({ id, name, image }: Props) => {
+  const [isHovered, setIsHovered] = useState(false);
   const { toggleFavorite, isFavorite } = useCharactersStore();
   const fav = isFavorite(id);
 
   const character = useCharactersStore((state) => state.characters.find((c) => c.id === id));
 
   return (
-    <Link to={`/character/${id}`} className={styles.card} data-testid="character-card">
+    <Link
+      to={`/character/${id}`}
+      className={`${styles.card} ${isHovered ? styles.hovered : ''}`}
+      data-testid="character-card"
+      onPointerEnter={() => setIsHovered(true)}
+      onPointerLeave={() => setIsHovered(false)}
+      onPointerCancel={() => setIsHovered(false)}
+      onTouchEnd={() => setIsHovered(false)}
+    >
       <div className={styles.imageWrapper}>
         <img src={image} alt={name} className={styles.image} draggable={false} />
         <div className={`${styles.footer} ${fav ? styles.favorite : ''}`}>

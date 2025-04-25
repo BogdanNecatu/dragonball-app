@@ -9,6 +9,10 @@
   cursor: pointer;
 }
 
+.imageWrapper {
+  width: 100%;
+}
+
 .image {
   width: 100%;
   height: calc(245.97px - 56px);
@@ -50,7 +54,8 @@
   clip-path: polygon(100% 0, 0 110%, 110% 100%);
   z-index: 2;
 }
-.card:hover .footer::before {
+
+.hovered .footer::before {
   transform: translateY(0%);
 }
 
@@ -58,9 +63,10 @@
   background-color: black;
 }
 
-.card:hover .footer.favorite svg path {
+.hovered .footer.favorite svg path {
   fill: white;
 }
+
 .nameWrapper {
   width: 100%;
   padding: 16px 16px 24px 16px;
@@ -68,6 +74,7 @@
   align-items: center;
   justify-content: space-between;
 }
+
 .name {
   font-size: 14px;
   overflow: hidden;
