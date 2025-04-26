@@ -1,5 +1,3 @@
-// src/features/characters/hooks/useCharacterDetail.ts
-
 import { useParams } from 'react-router-dom';
 import { useCharactersStore } from '../../features/characters/model/useCharactersStore';
 import { useHorizontalScroll } from '../../shared/lib/hooks/useHorizontalScroll';

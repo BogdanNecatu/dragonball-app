@@ -32,7 +32,7 @@ export function useHorizontalScroll<T extends HTMLElement>(): React.RefObject<T 
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - el.offsetLeft;
-      const walk = (x - startX) * 0.2;
+      const walk = x - startX;
       el.scrollLeft = scrollLeft - walk;
     };
 
