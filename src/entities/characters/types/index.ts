@@ -1,3 +1,11 @@
+export interface StoreState {
+  characters: Character[];
+  favorites: Character[];
+  setCharacters: (characters: Character[]) => void;
+  toggleFavorite: (character: Character) => void;
+  isFavorite: (id: number) => boolean;
+  fetchCharacters: () => void;
+}
 export interface Character {
   id: number;
   name: string;
@@ -12,15 +20,6 @@ export interface Character {
   ki?: number;
   maxKi?: number;
   transformations: Transformation[] | [];
-}
-
-export interface StoreState {
-  characters: Character[];
-  favorites: Character[];
-  setCharacters: (characters: Character[]) => void;
-  toggleFavorite: (character: Character) => void;
-  isFavorite: (id: number) => boolean;
-  fetchCharacters: () => void;
 }
 
 export type Transformation = {

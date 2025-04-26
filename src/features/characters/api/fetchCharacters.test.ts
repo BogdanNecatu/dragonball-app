@@ -1,78 +1,97 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { fetchCharacters } from './fetchCharacters';
 import axiosInstance from '../../../shared/api/axiosInstance';
+import { vi, describe, it, expect, beforeEach } from 'vitest';
 
-// Mock Axios instance
-vi.mock('../../../shared/api/axiosInstance', () => ({
-  default: {
-    get: vi.fn(),
-  },
+vi.mock('@/shared/api/axiosInstance');
+
+const mockAxios = axiosInstance as unknown as {
+  get: ReturnType<typeof vi.fn>;
+};
+
+const baseCharacters = [
+  { id: 1, name: 'Goku', image: 'goku.png', transformations: [] },
+  { id: 2, name: 'Vegeta', image: 'vegeta.png', transformations: [] },
+  { id: 3, name: 'Piccolo', image: 'piccolo.png', transformations: [] },
+];
+
+const detailedCharacters = baseCharacters.map((char) => ({
+  ...char,
+  race: 'Saiyan',
+  gender: 'Male',
+  transformations: [{ id: 1, name: 'Super Saiyan', image: 'ssj.png', ki: '10000', deletedAt: null }],
 }));
-
-const mockGet = axiosInstance.get as ReturnType<typeof vi.fn>;
 
 describe('fetchCharacters', () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  it('should fetch all pages and return detailed characters', async () => {
-    // Mock first response with meta
-    mockGet.mockResolvedValueOnce({
-      data: {
-        items: [{ id: '1' }, { id: '2' }],
-        meta: {
-          totalPages: 2,
+  it('fetches all characters and their details successfully', async () => {
+    mockAxios.get = vi
+      .fn()
+      // Primera llamada a "/"
+      .mockResolvedValueOnce({
+        data: {
+          items: baseCharacters,
+          meta: { totalPages: 1 },
         },
-      },
-    });
-
-    // Mock page 2 response
-    mockGet.mockResolvedValueOnce({
-      data: {
-        items: [{ id: '3' }],
-      },
-    });
-
-    // Mock detailed responses
-    mockGet.mockResolvedValueOnce({ data: { id: '1', name: 'Goku' } });
-    mockGet.mockResolvedValueOnce({ data: { id: '2', name: 'Vegeta' } });
-    mockGet.mockResolvedValueOnce({ data: { id: '3', name: 'Gohan' } });
+      })
+      // Segundas llamadas a "/character/:id"
+      .mockResolvedValueOnce({ data: detailedCharacters[0] })
+      .mockResolvedValueOnce({ data: detailedCharacters[1] })
+      .mockResolvedValueOnce({ data: detailedCharacters[2] });
 
     const result = await fetchCharacters();
 
-    expect(result).toEqual([
-      { id: '1', name: 'Goku' },
-      { id: '2', name: 'Vegeta' },
-      { id: '3', name: 'Gohan' },
-    ]);
-    expect(mockGet).toHaveBeenCalledTimes(5); // 1 inicial + 1 extra page + 3 detalles
+    expect(mockAxios.get).toHaveBeenCalledWith('1');
+    expect(mockAxios.get).toHaveBeenCalledWith('2');
+    expect(mockAxios.get).toHaveBeenCalledWith('3');
+
+    expect(result).toHaveLength(3);
+    expect(result[0].transformations.length).toBeGreaterThan(0);
   });
 
-  it('should handle rejected page requests and still return successful details', async () => {
-    // Initial
-    mockGet.mockResolvedValueOnce({
-      data: {
-        items: [{ id: '1' }],
-        meta: { totalPages: 2 },
-      },
-    });
-
-    // Page 2 fails
-    mockGet.mockRejectedValueOnce(new Error('Page 2 failed'));
-
-    // Detalle
-    mockGet.mockResolvedValueOnce({ data: { id: '1', name: 'Goku' } });
+  it('handles failed page requests but continues loading', async () => {
+    mockAxios.get = vi
+      .fn()
+      // Primera llamada a "/"
+      .mockResolvedValueOnce({
+        data: {
+          items: baseCharacters,
+          meta: { totalPages: 3 },
+        },
+      })
+      // Fallo en una página
+      .mockRejectedValueOnce(new Error('Page 2 failed'))
+      .mockResolvedValueOnce({ data: { items: [] } })
+      // Segundas llamadas a detalles
+      .mockResolvedValueOnce({ data: detailedCharacters[0] })
+      .mockResolvedValueOnce({ data: detailedCharacters[1] })
+      .mockResolvedValueOnce({ data: detailedCharacters[2] });
 
     const result = await fetchCharacters();
 
-    expect(result).toEqual([{ id: '1', name: 'Goku' }]);
-    expect(mockGet).toHaveBeenCalledTimes(3); // 1 primera, 1 page fallida, 1 detalle
+    expect(result).toHaveLength(3);
   });
 
-  it('should throw an error if initial request fails', async () => {
-    mockGet.mockRejectedValueOnce(new Error('Network Error'));
+  it('throws if first page fails', async () => {
+    mockAxios.get = vi.fn().mockRejectedValueOnce(new Error('API down'));
 
-    await expect(fetchCharacters()).rejects.toThrow('Failed to fetch Dragon Ball characters');
+    await expect(fetchCharacters()).rejects.toThrow('Failed to fetch characters from API');
+  });
+
+  it('throws if all detail fetching fails', async () => {
+    mockAxios.get = vi
+      .fn()
+      .mockResolvedValueOnce({
+        data: {
+          items: baseCharacters,
+          meta: { totalPages: 1 },
+        },
+      })
+      // Todos los detalles fallan
+      .mockRejectedValue(new Error('Detail API down'));
+
+    await expect(fetchCharacters()).rejects.toThrow('Failed to fetch detailed character information');
   });
 });

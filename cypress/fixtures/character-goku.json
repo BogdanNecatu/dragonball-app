@@ -1,9 +1,0 @@
-{
-  "id": 1,
-  "name": "Goku",
-  "image": "/images/goku.png",
-  "transformations": [
-    { "id": 1, "name": "Super Saiyan", "ki": "3 Billion", "image": "/images/ssj.png" },
-    { "id": 2, "name": "Ultra Instinct", "ki": "10 Trillion", "image": "/images/ui.png" }
-  ]
-}
