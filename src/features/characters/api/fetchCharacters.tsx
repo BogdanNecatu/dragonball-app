@@ -1,5 +1,6 @@
 import axiosInstance from '../../../shared/api/axiosInstance';
 import { Character } from '../../../entities/characters/types';
+import { AxiosResponse } from 'axios';
 
 /**
  * Fetch all paginated characters from the API.
@@ -46,14 +47,14 @@ const getAllCharactersPages = async (): Promise<Character[]> => {
  */
 const getDetailedCharacters = async (characters: Character[]): Promise<Character[]> => {
   const limited = characters.slice(0, 50);
-  const detailedRequests = limited.map((char) => axiosInstance.get(`${char.id}`));
+  const detailedRequests = limited.map((char) => axiosInstance.get<Character>(`${char.id}`));
 
   try {
-    const detailedResponses = await Promise.allSettled(detailedRequests);
+    const detailedResponses = await Promise.allSettled<AxiosResponse<Character>>(detailedRequests);
 
     const successfulDetails = detailedResponses
-      .filter((res) => res.status === 'fulfilled')
-      .map((res: any) => res.value.data);
+      .filter((res): res is PromiseFulfilledResult<AxiosResponse<Character>> => res.status === 'fulfilled')
+      .map((res) => res.value.data);
 
     if (successfulDetails.length === 0) {
       throw new Error('Failed to fetch detailed character information');

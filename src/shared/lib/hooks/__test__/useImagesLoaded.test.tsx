@@ -1,6 +1,6 @@
 import { renderHook, act } from '@testing-library/react';
 import { vi } from 'vitest';
-import useImagesLoaded from './useImagesLoaded';
+import useImagesLoaded from '../useImagesLoaded';
 
 // Simulates image loading by overriding Image prototype
 beforeEach(() => {

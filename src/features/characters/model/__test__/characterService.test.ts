@@ -1,10 +1,9 @@
 import { describe, it, expect, vi } from 'vitest';
-import { loadCharacters } from '../characterService'; // Ajusta la ruta según tu estructura
+import { loadCharacters } from '../characterService';
 import { fetchCharacters } from '../../api/fetchCharacters';
 import { shouldRefetch, updateLastFetch } from '../characterCacheService';
 import { StoreState, Character } from '../../../../entities/characters/types';
 
-// Mock de dependencias externas
 vi.mock('../../api/fetchCharacters', () => ({
   fetchCharacters: vi.fn(),
 }));

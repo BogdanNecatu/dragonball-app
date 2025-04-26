@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react';
-import { useHorizontalScroll } from './useHorizontalScroll';
+import { useHorizontalScroll } from '../useHorizontalScroll';
 
 const ScrollableComponent = () => {
   const scrollRef = useHorizontalScroll<HTMLDivElement>();

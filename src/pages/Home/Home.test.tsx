@@ -1,5 +1,7 @@
-import '@testing-library/jest-dom';
+import { waitFor } from '@testing-library/react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { useCharactersStore } from '../../features/characters/model/useCharactersStore';
 import Home from './Home';
 import { vi } from 'vitest';
 
@@ -7,12 +9,8 @@ vi.mock('../../shared/lib/hooks/useImagesLoaded', () => ({
   default: () => true,
 }));
 
-import { useCharactersStore } from '../../features/characters/model/useCharactersStore';
-import { MemoryRouter } from 'react-router-dom';
-import { Character } from '../../entities/characters/types';
-
 // Dummy character list
-const dummyCharacters: Character[] = [
+const dummyCharacters = [
   {
     id: 1,
     name: 'Goku',
@@ -65,13 +63,19 @@ describe('Home Component', () => {
     );
 
     const input = screen.getByPlaceholderText('SEARCH A CHARACTER...');
+
     fireEvent.change(input, { target: { value: 'goku' } });
 
-    const filteredCards = await screen.findAllByTestId('character-card');
-    expect(filteredCards).toHaveLength(1);
-    expect(filteredCards[0]).toHaveTextContent('Goku');
+    await waitFor(
+      async () => {
+        const filteredCards = await screen.findAllByTestId('character-card');
+        expect(filteredCards).toHaveLength(1);
+        expect(filteredCards[0]).toHaveTextContent('Goku');
 
-    const resultCount = screen.getByTestId('result-count');
-    expect(resultCount).toHaveTextContent('1 RESULTS');
+        const resultCount = screen.getByTestId('result-count');
+        expect(resultCount).toHaveTextContent('1 RESULTS');
+      },
+      { timeout: 1500 },
+    );
   });
 });
