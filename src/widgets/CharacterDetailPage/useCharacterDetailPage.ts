@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useCharactersStore } from '../../features/characters/store/useCharactersStore';
+import { useCharactersStore } from '../../features/characters/model/useCharactersStore';
 import useImagesLoaded from '../../shared/lib/hooks/useImagesLoaded';
 
 export function useCharacterDetailPage() {

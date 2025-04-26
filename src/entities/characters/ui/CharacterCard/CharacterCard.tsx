@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import FilledHeartIcon from '../../../../assets/icons/FilledHeartIcon';
 import OutlineHeartIcon from '../../../../assets/icons/OutlineHeartIcon';
-import { useCharactersStore } from '../../../../features/characters/store/useCharactersStore';
+import { useCharactersStore } from '../../../../features/characters/model/useCharactersStore';
 import styles from './CharacterCard.module.css';
 
 type Props = {

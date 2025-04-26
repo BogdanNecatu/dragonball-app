@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react';
 import { useCharacterDetail } from './useCharacterDetail';
-import { useCharactersStore } from '../../features/characters/store/useCharactersStore';
+import { useCharactersStore } from '../../features/characters/model/useCharactersStore';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { ReactNode } from 'react';
 import { Character } from '../../entities/characters/types';

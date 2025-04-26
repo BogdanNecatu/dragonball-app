@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Header from './Header';
-import { useCharactersStore } from '../../features/characters/store/useCharactersStore';
+import { useCharactersStore } from '../../features/characters/model/useCharactersStore';
 import { Character } from '../../entities/characters/types';
 
 // Dummy character used for testing favorites

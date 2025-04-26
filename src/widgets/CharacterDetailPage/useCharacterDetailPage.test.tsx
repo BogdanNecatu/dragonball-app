@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { useCharacterDetailPage } from './useCharacterDetailPage';
-import { useCharactersStore } from '../../features/characters/store/useCharactersStore';
+import { useCharactersStore } from '../../features/characters/model/useCharactersStore';
 import { ReactNode } from 'react';
 import { Character } from '../../entities/characters/types';
 import { vi } from 'vitest';

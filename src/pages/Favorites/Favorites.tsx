@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import SearchCharacter from '../../features/searchCharacter/SearchCharacter';
 import CharacterList from '../../widgets/CharacterList/CharacterLis';
-import { useCharactersStore } from '../../features/characters/store/useCharactersStore';
+import { useCharactersStore } from '../../features/characters/model/useCharactersStore';
 import useImagesLoaded from '../../shared/lib/hooks/useImagesLoaded';
 import { Character } from '../../entities/characters/types';
 import styles from './Favorites.module.css';

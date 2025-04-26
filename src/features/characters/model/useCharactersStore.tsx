@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { fetchCharacters as fetchDragonBallCharacters } from '../api/fetchCharacters';
+import { loadCharacters } from '../model/characterService';
 import { StoreState } from '../../../entities/characters/types';
 
 export const useCharactersStore = create<StoreState>()(
@@ -24,20 +24,7 @@ export const useCharactersStore = create<StoreState>()(
       },
       isFavorite: (id) => get().favorites.some((f) => f.id === id),
       fetchCharacters: async () => {
-        const now = Date.now();
-        const lastFetch = Number(localStorage.getItem('lastFetch')) || 0;
-        const twentyFourHours = 24 * 60 * 60 * 1000;
-
-        if (now - lastFetch < twentyFourHours && get().characters.length > 0) return;
-
-        try {
-          const characters = await fetchDragonBallCharacters();
-          set({ characters });
-          localStorage.setItem('lastFetch', now.toString());
-        } catch (e) {
-          console.error('Error fetching Dragon Ball characters:', e);
-          throw e;
-        }
+        await loadCharacters(set, get);
       },
     }),
     {

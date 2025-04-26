@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import { useCharactersStore } from '../../features/characters/store/useCharactersStore';
+import { useCharactersStore } from '../../features/characters/model/useCharactersStore';
 import styles from './Header.module.css';
 import dragonballLogo from '../../assets/images/logo-dragon-ball-api.png';
 import FilledHeartIcon from '../../assets/icons/FilledHeartIcon';

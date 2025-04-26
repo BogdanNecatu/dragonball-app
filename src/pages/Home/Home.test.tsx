@@ -7,7 +7,7 @@ vi.mock('../../shared/lib/hooks/useImagesLoaded', () => ({
   default: () => true,
 }));
 
-import { useCharactersStore } from '../../features/characters/store/useCharactersStore';
+import { useCharactersStore } from '../../features/characters/model/useCharactersStore';
 import { MemoryRouter } from 'react-router-dom';
 import { Character } from '../../entities/characters/types';
 

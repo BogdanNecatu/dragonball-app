@@ -1,5 +1,4 @@
 /// <reference types="cypress" />
-/// <reference types="cypress" />
 
 /**
  * Search for a character by name in the input field

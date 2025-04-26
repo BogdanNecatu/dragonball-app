@@ -1,6 +1,6 @@
 import { act } from 'react-dom/test-utils';
-import { useCharactersStore } from './useCharactersStore';
-import { Character } from '../../../entities/characters/types';
+import { useCharactersStore } from '../useCharactersStore';
+import { Character } from '../../../../entities/characters/types';
 import { vi } from 'vitest';
 
 // Dummy character to use in all tests

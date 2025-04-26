@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import CharacterCard from './CharacterCard';
-import { useCharactersStore } from '../../../../features/characters/store/useCharactersStore';
+import { useCharactersStore } from '../../../../features/characters/model/useCharactersStore';
 import { vi } from 'vitest';
 
 // Dummy character used for all tests
