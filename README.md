@@ -1,26 +1,26 @@
-Dragon Ball Characters App
+Dragon Ball Characters App:
 
 Esta es una aplicación desarrollada como prueba técnica para mostrar información de personajes del universo Dragon Ball (alternativamente al universo Marvel) usando React y la API REST oficial Dragon Ball API.
 
 🚀 Demo
 
-Puedes ver la demo online (opcional si se publica): https://dragonball-app-characters.vercel.app/
+Puedes ver la demo online: https://dragonball-app-characters.vercel.app/
 
 📄 Contenido
 
-Características principales
+1. Características principales
 
-Tecnologías utilizadas
+2. Tecnologías utilizadas
 
-Instalación
+3. Instalación
 
-Ejecución en modo desarrollo
+4. Ejecución en modo desarrollo
 
-Ejecución en modo producción
+5. Ejecución en modo producción
 
-Estructura del proyecto
+6. Estructura del proyecto
 
-Tests
+7. Tests
 
 Requisitos cumplidos
 
@@ -87,6 +87,33 @@ npm run preview
 
 Los assets se sirven minimizados y optimizados.
 
+🏗️ Estructura del proyecto
+
+src/
+├── app/ # Entrypoint principal (App.tsx, Main.tsx)
+├── assets/ # Iconos e imágenes
+│ ├── icons/
+│ └── images/
+├── entities/
+│ └── characters/ # Tipos de entidades de personajes
+├── features/
+│ └── characters/
+│ ├── api/
+│ ├── model/
+│ └── utils/
+├── pages/ # Páginas principales (CharacterDetail, Favorites, Home)
+├── searchCharacter/ # Buscador de personajes
+├── shared/
+│ ├── api/ # Configuración de Axios
+│ ├── hooks/ # Hooks reutilizables
+│ ├── styles/ # Estilos globales (globalStyles.css)
+│ └── types/ # Tipos globales
+├── widgets/
+│ ├── CharacterDetailPage/
+│ ├── CharacterList/
+│ └── Header/
+├── setupTests.ts # Configuración de testing
+
 📝 Tests
 
 Testing Library + Vitest + Cypres:
@@ -96,8 +123,6 @@ Run e2e test: npm run e2e
 Run Unit test: npm run test
 
 Se testean renderizados y funcionalidades básicas (ej: favoritos)
-
-✅ Requisitos cumplidos
 
 📅 Licencia
 
