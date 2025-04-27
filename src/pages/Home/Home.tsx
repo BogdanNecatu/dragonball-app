@@ -36,11 +36,13 @@ const Home = () => {
   const allImagesLoaded = useImagesLoaded(imageUrls);
 
   return (
-    <main className={`${styles.main} ${allImagesLoaded ? styles.loaded : ''}`}>
+    <main className={`${styles.main} ${allImagesLoaded ? styles.loaded : ''}`} aria-label="Dragon Ball characters list">
       {error ? (
         <div className={styles.errorMessage}>
           <p>{error}</p>
-          <button onClick={() => window.location.reload()}>Reintentar</button>
+          <button onClick={() => window.location.reload()} aria-label="Retry loading characters">
+            Reintentar
+          </button>
         </div>
       ) : allImagesLoaded ? (
         <>
@@ -48,7 +50,7 @@ const Home = () => {
           <CharacterList characters={filtered} />
         </>
       ) : (
-        <div className={styles.loadingBar}></div>
+        <div className={styles.loadingBar} role="status" aria-live="polite" aria-label="Loading characters"></div>
       )}
     </main>
   );

@@ -8,7 +8,7 @@ interface Props {
 
 const CharacterList = ({ characters }: Props) => {
   return (
-    <div className={styles.grid}>
+    <div className={styles.grid} role="list" aria-label="List of Dragon Ball characters">
       {characters.map((char: Character) => (
         <CharacterCard key={char.id} id={char.id} name={char.name} image={char.image} />
       ))}

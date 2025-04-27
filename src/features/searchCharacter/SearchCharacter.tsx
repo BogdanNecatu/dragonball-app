@@ -22,11 +22,14 @@ const SearchCharacter = ({ search, onSearch, resultCount }: Props) => {
       <div className={styles.inputGroup}>
         <SearchIcon className={styles.icon} />
         <input
+          className={styles.input}
           type="text"
           placeholder="SEARCH A CHARACTER..."
+          spellCheck="false"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          className={styles.input}
+          role="searchbox"
+          aria-label="Search a Dragon Ball character"
         />
       </div>
       <p className={styles.result} data-testid="result-count">

@@ -19,6 +19,9 @@ export default function CharacterDetail() {
                 {character.name.toUpperCase()}
               </h1>
               <span
+                role="button"
+                aria-pressed={fav}
+                aria-label={fav ? 'Remove from favorites' : 'Add to favorites'}
                 onClick={(e) => {
                   e.preventDefault();
                   character && toggleFavorite(character);
@@ -44,10 +47,15 @@ export default function CharacterDetail() {
         <div className={styles.transformationsInner}>
           <h2 data-testid="transformation">TRANSFORMATIONS</h2>
           <div className={styles.scrollWrapper}>
-            <div className={styles.scrollContainer} ref={scrollRef}>
+            <div
+              className={styles.scrollContainer}
+              ref={scrollRef}
+              role="list"
+              aria-label="List of character transformations"
+            >
               {sortedTransformations.length > 0 ? (
                 sortedTransformations.map((t) => (
-                  <div key={t.id} className={styles.card} data-testid="transformation-card">
+                  <div key={t.id} className={styles.card} data-testid="transformation-card" role="listitem">
                     <img src={t.image} alt={t.name} draggable={false} className={styles.transformationImage} />
                     <div className={styles.cardInfo}>
                       <p className={styles.cardTitle} data-testid="transformation-name">

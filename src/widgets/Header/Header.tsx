@@ -16,7 +16,11 @@ const Header = () => {
       </NavLink>
       <NavLink to="/favorites">
         <FilledHeartIcon width={24} height={21.68} fill="#EC1D24" />
-        <span className={styles.fav} data-testid="favorites-counter">
+        <span
+          className={styles.fav}
+          data-testid="favorites-counter"
+          aria-label={`You have ${favorites.length} favorite characters`}
+        >
           {favorites.length}
         </span>
       </NavLink>

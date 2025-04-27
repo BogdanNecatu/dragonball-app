@@ -22,14 +22,19 @@ const Favorites = () => {
       <h1 className={styles.title} data-testid="favorites-name">
         FAVORITES
       </h1>
-      <main className={`${styles.main} ${allImagesLoaded ? styles.loaded : ''}`}>
+      <main className={`${styles.main} ${allImagesLoaded ? styles.loaded : ''}`} aria-label="Favorite characters list">
         {allImagesLoaded ? (
           <>
             <SearchCharacter search={search} onSearch={setSearch} resultCount={filtered.length} />
             <CharacterList characters={filtered} />
           </>
         ) : (
-          <div className={styles.loadingBar}></div>
+          <div
+            className={styles.loadingBar}
+            role="status"
+            aria-live="polite"
+            aria-label="Loading favorite characters"
+          ></div>
         )}
       </main>
     </div>

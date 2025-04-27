@@ -10,9 +10,9 @@ export default function CharacterDetailPage() {
 
   return (
     <>
-      {showBar && <div className={styles.animatedBar} />}
+      {showBar && <div className={styles.animatedBar} aria-hidden="true" />}
       {showDetail && character && (
-        <div className={styles.slideIn}>
+        <div className={styles.slideIn} role="main" aria-label="Character detail view">
           <CharacterDetail />
         </div>
       )}

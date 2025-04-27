@@ -22,6 +22,8 @@ const CharacterCard = ({ id, name, image }: Props) => {
     <Link
       to={`/character/${id}`}
       className={`${styles.card} ${isHovered ? styles.hovered : ''}`}
+      role="link"
+      aria-label={`View details about ${name}`}
       data-testid="character-card"
       onPointerEnter={() => setIsHovered(true)}
       onPointerLeave={() => setIsHovered(false)}
@@ -37,6 +39,9 @@ const CharacterCard = ({ id, name, image }: Props) => {
             </span>
             <span
               data-testid={`favorite-toggle-${id}`}
+              role="button"
+              aria-label={fav ? 'Remove from favorites' : 'Add to favorites'}
+              aria-pressed={fav}
               onClick={(e) => {
                 e.preventDefault();
                 character && toggleFavorite(character);
