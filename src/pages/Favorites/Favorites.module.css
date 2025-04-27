@@ -1,7 +1,8 @@
 .wrapper {
   width: 100%;
   margin: 0 auto;
-  padding: 48px 0 48px 0;
+  padding-top: var(--space-xxl);
+  padding-bottom: var(--space-xxl);
 }
 
 .main {
@@ -13,8 +14,9 @@
 }
 
 .title {
-  font-size: 32px;
-  padding: 0 48px 0 48px;
+  font-size: var(--font-size-l);
+  padding-left: var(--space-xxl);
+  padding-right: var(--space-xxl);
 }
 
 .loaded {
@@ -24,7 +26,7 @@
 
 .loadingBar {
   height: 6px;
-  background-color: #ec1d24;
+  background-color: var(--color-primary);
   width: 100%;
   animation: loadingSlide 3s ease-in-out infinite alternate;
 }
@@ -40,11 +42,13 @@
 
 @media (max-width: 768px) {
   .main {
-    padding: 24px 0 24px 0;
+    padding-top: var(--space-l);
+    padding-bottom: var(--space-l);
   }
 
   .title {
-    padding: 0 24px 0 24px;
+    padding-left: var(--space-l);
+    padding-right: var(--space-l);
     font-size: 28px;
   }
 }

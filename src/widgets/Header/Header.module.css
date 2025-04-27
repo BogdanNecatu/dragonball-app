@@ -3,8 +3,8 @@
   top: 0;
   z-index: 1000;
   display: flex;
-  background-color: black;
-  color: white;
+  background-color: var(--color-black);
+  color: var(--color-white);
   height: 84px;
   padding: 28px;
   justify-content: space-between;
@@ -13,35 +13,30 @@
 }
 
 .borderBottom {
-  border-bottom: 2px solid #333333;
+  border-bottom: var(--border-width-thin) solid var(--color-gray-dark);
 }
 
 @media (max-width: 768px) {
   .borderBottom {
-    border-bottom: 2px solid #000000;
+    border-bottom: var(--border-width-thin) solid var(--color-black);
   }
 }
 
 .logo {
   width: 122px;
-  height: 52px;
-  top: 5px;
-  left: 4px;
-}
-
-.fav {
-  font-size: 15px;
-  margin-left: 8px;
-  color: white;
-}
-
-.logo {
   height: 60px;
   object-fit: contain;
 }
 
+.fav {
+  font-size: 15px;
+  margin-left: var(--space-s);
+  color: var(--color-white);
+}
+
 a {
-  text-decoration: none; /* esto afecta a todos los NavLink */
+  text-decoration: none;
+  color: inherit;
 }
 
 a:visited {

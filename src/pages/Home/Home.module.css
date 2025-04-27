@@ -1,14 +1,13 @@
 .main {
-  padding: 48px 0 48px 0;
-  margin: 0;
-}
-
-.main {
   width: 100%;
   margin: 0 auto;
   opacity: 0;
-  transform: translateY(30px); /* Animación desde abajo */
+  transform: translateY(30px);
   transition: all 0.35s ease-in-out;
+  padding-top: var(--space-xxl);
+  padding-bottom: var(--space-xxl);
+  padding-left: var(--space-0);
+  padding-right: var(--space-0);
 }
 
 .loaded {
@@ -18,7 +17,7 @@
 
 .loadingBar {
   height: 6px;
-  background-color: #ec1d24;
+  background-color: var(--color-primary);
   width: 100%;
   animation: loadingSlide 3s ease-in-out infinite alternate;
 }
@@ -39,28 +38,32 @@
   justify-content: center;
   text-align: center;
   min-height: 70vh;
-  padding: 2rem;
-  color: #fff;
-  background-color: #1a1a1a;
-  border: 1px solid #ec1d24;
-  border-radius: 1rem;
+  padding: var(--space-xl);
+  color: var(--color-white);
+  background-color: var(--color-dark);
+  border: var(--border-width-thin) solid var(--color-primary);
+  border-radius: var(--border-radius-l);
   box-shadow: 0 0 20px rgba(236, 29, 36, 0.4);
   animation: fadeIn 0.5s ease-in-out;
 }
 
 .errorMessage p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  font-size: 19.2px;
+  margin-bottom: var(--space-l);
 }
 
 .errorMessage button {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  padding-top: var(--space-m);
+  padding-bottom: var(--space-m);
+  margin-bottom: var(--space-m);
+  padding-left: var(--space-l);
+  padding-right: var(--space-l);
+  font-size: var(--font-size-s);
   font-weight: bold;
-  color: #fff;
-  background: linear-gradient(90deg, #ec1d24, #8a0f0f);
+  color: var(--color-white);
+  background: linear-gradient(90deg, var(--color-primary), #8a0f0f);
   border: none;
-  border-radius: 0.5rem;
+  border-radius: var(--border-radius-s);
   cursor: pointer;
   transition:
     transform 0.2s ease,

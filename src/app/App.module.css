@@ -2,10 +2,6 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: white;
-  color: black;
-}
-
-:global(*) {
-  font-family: 'Roboto Condensed', sans-serif;
+  background-color: var(--color-white);
+  color: var(--color-black);
 }

@@ -1,15 +1,17 @@
 .grid {
-  padding: 0 48px 0 48px;
+  padding-left: var(--space-xxl);
+  padding-right: var(--space-xxl);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(172.5px, 188.57px));
   justify-content: left;
-  gap: 16px;
+  gap: var(--space-m);
 }
 
 @media (max-width: 768px) {
   .grid {
-    padding: 0 16px 0 16px;
+    padding-left: var(--space-m);
+    padding-right: var(--space-m);
     grid-template-columns: repeat(auto-fit, minmax(172.5px, 172.5px));
-    gap: 8px;
+    gap: var(--space-s);
   }
 }

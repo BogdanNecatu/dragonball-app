@@ -1,10 +1,10 @@
 .heroSection {
   display: flex;
   flex-direction: column;
-  background: black;
-  color: white;
-  padding: 1.5rem;
-  gap: 1rem;
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: var(--space-m);
+  gap: var(--space-m);
   position: relative;
   overflow: hidden;
 }
@@ -16,7 +16,7 @@
   right: 0;
   width: 30px;
   height: 30px;
-  background-color: white;
+  background-color: var(--color-white);
   clip-path: polygon(100% 0, 0 110%, 110% 100%);
 }
 
@@ -31,16 +31,17 @@
 .heroInner {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--space-l);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding-left: var(--space-m);
+  padding-right: var(--space-m);
   max-width: 1024px;
 }
 
 @media (min-width: 768px) {
   .heroInner {
     flex-direction: row;
-    align-items: center; /* centrado vertical del bloque texto */
+    align-items: center;
     justify-content: center;
   }
 }
@@ -48,7 +49,7 @@
 .characterImage {
   max-width: 150px;
   height: auto;
-  border-radius: 8px;
+  border-radius: var(--border-radius-s);
   align-self: center;
   object-fit: cover;
 }
@@ -64,44 +65,41 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-m);
 }
 
 .name {
-  font-size: 2rem;
+  font-size: var(--font-size-l);
   font-weight: bold;
-  margin: 0;
+  margin: var(--space-0);
 }
 
 .description {
-  margin-top: 1rem;
-  font-size: 1rem;
+  margin-top: var(--space-m);
+  font-size: var(--font-size-s);
   line-height: 1.5;
 }
 
 .transformations {
-  background: white;
-  color: black;
-  padding: 1.5rem;
+  background: var(--color-white);
+  color: var(--color-black);
+  padding: var(--space-m);
   margin-top: 25px;
 }
+
 .transformationsInner {
   max-width: 1024px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding-left: var(--space-m);
+  padding-right: var(--space-m);
   text-align: left;
 }
 
-.transformationsInner h2 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-}
-
+.transformationsInner h2,
 .transformations h2 {
-  font-size: 1.5rem;
+  font-size: var(--font-size-m);
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-l);
   text-align: left;
 }
 
@@ -111,21 +109,20 @@
   overflow-x: auto;
 }
 
+.scrollContainer {
+  display: flex;
+  gap: var(--space-m);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: var(--space-m);
+  max-width: 100%;
+  user-select: none;
+}
+
 @media (min-width: 768px) {
   .scrollContainer {
     max-width: 900px;
   }
-}
-
-.scrollContainer {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding-bottom: 1rem;
-  max-width: 100%;
-  overflow-x: auto;
-  user-select: none;
 }
 
 .card {
@@ -154,12 +151,12 @@
 
 .cardTitle {
   font-weight: bold;
-  margin-top: 0.5rem;
+  margin-top: var(--space-s);
 }
 
 .cardKi {
-  font-size: 0.9rem;
-  color: gray;
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-dark);
 }
 
 @media (min-width: 1024px) {
@@ -173,7 +170,7 @@
   }
 
   .scrollContainer::-webkit-scrollbar-thumb {
-    background-color: #ec1d24;
+    background-color: var(--color-primary);
     border-radius: 4px;
   }
 }
