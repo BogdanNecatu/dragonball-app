@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import FilledHeartIcon from '../../../../assets/icons/FilledHeartIcon';
@@ -56,4 +57,4 @@ const CharacterCard = ({ id, name, image }: Props) => {
   );
 };
 
-export default CharacterCard;
+export default React.memo(CharacterCard);

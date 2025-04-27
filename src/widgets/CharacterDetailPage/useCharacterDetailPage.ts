@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useCharactersStore } from '../../features/characters/model/useCharactersStore';
 import useImagesLoaded from '../../shared/lib/hooks/useImagesLoaded';
@@ -8,13 +8,17 @@ export function useCharacterDetailPage() {
   const [showDetail, setShowDetail] = useState(false);
   const [showBar, setShowBar] = useState(true);
 
-  const character = useCharactersStore((s) => s.characters.find((c) => Number(c.id) === Number(id)));
+  const character = useCharactersStore((state) => state.characters.find((c) => Number(c.id) === Number(id)));
 
-  const isNotFound = !character;
+  const memoCharacter = useMemo(() => character, [character]);
 
-  const transformationImages = character?.transformations?.map((t) => t.image) || [];
+  const transformationImages = useMemo(() => {
+    return memoCharacter?.transformations?.map((t) => t.image) || [];
+  }, [memoCharacter]);
 
-  const imagesLoaded = useImagesLoaded([character?.image, ...transformationImages].filter(Boolean) as string[]);
+  const isNotFound = useMemo(() => !memoCharacter, [memoCharacter]);
+
+  const imagesLoaded = useImagesLoaded([memoCharacter?.image, ...transformationImages].filter(Boolean) as string[]);
 
   useEffect(() => {
     const barTimer = setTimeout(() => setShowBar(false), 700);
@@ -29,7 +33,7 @@ export function useCharacterDetailPage() {
   }, [imagesLoaded]);
 
   return {
-    character,
+    character: memoCharacter,
     showBar,
     showDetail,
     isNotFound,

@@ -2,6 +2,7 @@ import { useDebounce } from '../../shared/lib/hooks/useDebounce';
 import { useEffect, useState } from 'react';
 import SearchIcon from '../../assets/icons/SearchIcon';
 import styles from './SearchCharacter.module.css';
+import React from 'react';
 
 type Props = {
   search: string;
@@ -39,4 +40,4 @@ const SearchCharacter = ({ search, onSearch, resultCount }: Props) => {
   );
 };
 
-export default SearchCharacter;
+export default React.memo(SearchCharacter);

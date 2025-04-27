@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import SearchCharacter from '../../features/searchCharacter/SearchCharacter';
 import CharacterList from '../../widgets/CharacterList/CharacterLis';
 import { useCharactersStore } from '../../features/characters/model/useCharactersStore';
@@ -10,9 +10,11 @@ const Favorites = () => {
   const { favorites } = useCharactersStore();
   const [search, setSearch] = useState('');
 
-  const filtered = favorites.filter((char: Character) =>
-    char.name.toLowerCase().split(' ')[0].startsWith(search.toLowerCase()),
-  );
+  const filtered = useMemo(() => {
+    return favorites.filter((char: Character) =>
+      char.name.toLowerCase().split(' ')[0].startsWith(search.toLowerCase()),
+    );
+  }, [favorites, search]);
 
   const imageUrls = filtered.map((char) => char.image);
   const allImagesLoaded = useImagesLoaded(imageUrls);

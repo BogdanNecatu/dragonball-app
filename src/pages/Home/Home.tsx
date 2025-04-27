@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import SearchCharacter from '../../features/searchCharacter/SearchCharacter';
 import CharacterList from '../../widgets/CharacterList/CharacterLis';
 import { useCharactersStore } from '../../features/characters/model/useCharactersStore';
@@ -28,9 +28,11 @@ const Home = () => {
     fetchData();
   }, [fetchCharacters]);
 
-  const filtered = characters.filter((char: Character) =>
-    char.name.toLowerCase().split(' ')[0].startsWith(search.toLowerCase()),
-  );
+  const filtered = useMemo(() => {
+    return characters.filter((char: Character) =>
+      char.name.toLowerCase().split(' ')[0].startsWith(search.toLowerCase()),
+    );
+  }, [characters, search]);
 
   const imageUrls = filtered.map((char) => char.image);
   const allImagesLoaded = useImagesLoaded(imageUrls);

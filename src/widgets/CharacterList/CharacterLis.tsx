@@ -1,6 +1,7 @@
 import CharacterCard from '../../entities/characters/ui/CharacterCard/CharacterCard';
 import styles from './CharacterList.module.css';
 import { Character } from '../../entities/characters/types';
+import React from 'react';
 
 interface Props {
   characters: Character[];
@@ -16,4 +17,4 @@ const CharacterList = ({ characters }: Props) => {
   );
 };
 
-export default CharacterList;
+export default React.memo(CharacterList);

@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useCharactersStore } from '../../features/characters/model/useCharactersStore';
 import { useHorizontalScroll } from '../../shared/lib/hooks/useHorizontalScroll';
@@ -11,14 +12,17 @@ export function useCharacterDetail() {
 
   const character = useCharactersStore((state) => state.characters.find((c) => Number(c.id) === Number(id)));
 
-  const sortedTransformations: Transformation[] = character?.transformations
-    ? sortTransformationsByKi(character.transformations)
-    : [];
+  const memoCharacter = useMemo(() => character, [character]);
+
+  const sortedTransformations: Transformation[] = useMemo(() => {
+    if (!memoCharacter?.transformations) return [];
+    return sortTransformationsByKi(memoCharacter.transformations);
+  }, [memoCharacter]);
 
   const fav = isFavorite(Number(id));
 
   return {
-    character,
+    character: memoCharacter,
     fav,
     toggleFavorite,
     scrollRef,
