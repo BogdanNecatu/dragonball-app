@@ -22,47 +22,45 @@ Puedes ver la demo online: https://dragonball-app-characters.vercel.app/
 
 7. Tests
 
-Requisitos cumplidos
+8. Licencia
 
-Licencia
+🚀 1. Características principales:
 
-🚀 Características principales:
+- Vista principal con listado de personajes (primeros 50)
 
-Vista principal con listado de personajes (primeros 50)
+- Buscador en tiempo real por nombre de personaje
 
-Buscador en tiempo real por nombre de personaje
+- Sistema de favoritos persistente entre vistas
 
-Sistema de favoritos persistente entre vistas
+- Vista de detalle con imagen, descripción y transformaciones (ordenadas por nivel de ki)
 
-Vista de detalle con imagen, descripción y transformaciones (ordenadas por nivel de ki)
+- Responsive en desktop y mobile (diseños Figma seguidos)
 
-Responsive en desktop y mobile (diseños Figma seguidos)
+- Scroll horizontal interactivo para transformaciones
 
-Scroll horizontal interactivo para transformaciones
+- Persistencia de datos cacheados durante 24h
 
-Persistencia de datos cacheados durante 24h
+- Linter y formatter configurados
 
-Linter y formatter configurados
+- Sin advertencias en consola
 
-Sin advertencias en consola
+- Modo desarrollo y producción diferenciados
 
-Modo desarrollo y producción diferenciados
-
-🧰 Tecnologías utilizadas:
+🧰 2. Tecnologías utilizadas:
 
 React 18 + Vite
 
-TypeScript
+- TypeScript
 
-Zustand (gestión de estado)
+- Zustand (gestión de estado)
 
-CSS Modules
+- CSS Modules
 
-Jest + Testing Library
+- Vitest + Cypres
 
-ESLint + Prettier
+- ESLint + Prettier
 
-⚙️ Instalación
+⚙️ 3. Instalación
 
 # Clona el repositorio
 
@@ -73,13 +71,13 @@ cd dragonball-app
 
 npm install
 
-🔧 Ejecución en modo desarrollo
+🔧 4. Ejecución en modo desarrollo
 
 npm run dev
 
 Esto levantará un servidor en http://localhost:5173.
 
-🚨 Ejecución en modo producción
+🚨 5. Ejecución en modo producción
 
 npm run build
 
@@ -87,7 +85,7 @@ npm run preview
 
 Los assets se sirven minimizados y optimizados.
 
-🏗️ Estructura del proyecto
+🏗️ 6. Estructura del proyecto
 
 src/
 ├── app/ # Entrypoint principal (App.tsx, Main.tsx)
@@ -114,16 +112,16 @@ src/
 │ └── Header/
 ├── setupTests.ts # Configuración de testing
 
-📝 Tests
+📝 7. Tests
 
-Testing Library + Vitest + Cypres:
+Vitest + Cypres:
 
-Run e2e test: npm run e2e
+- Run e2e test: npm run e2e
 
-Run Unit test: npm run test
+- Run Unit test: npm run test
 
 Se testean renderizados y funcionalidades básicas (ej: favoritos)
 
-📅 Licencia
+📅 8. Licencia
 
-Este proyecto se ha desarrollado con fines formativos como parte de una prueba técnica.
+- Este proyecto se ha desarrollado con fines formativos como parte de una prueba técnica.
